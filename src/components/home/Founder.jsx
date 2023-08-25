@@ -17,12 +17,13 @@ const Founder = () => {
     <section className="founder">
       <motion.div {...options}>
         <img src={me} alt="Founder" height={200} width={200} />
-        <h3>Nelson</h3>
+        <h3>Milos</h3>
 
         <p>
-          Hey, Everyone I am Nelson, the founder of Burger Shop.
+          Hello there! I'm Milos, founder and CEO of the greatest Burger joint
+          this side of Milky Way!
           <br />
-          Our aim is to create the most tasty burger on planet.
+          Only the best burgers are served here!
         </p>
       </motion.div>
     </section>

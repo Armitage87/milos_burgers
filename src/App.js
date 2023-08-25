@@ -1,19 +1,18 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Home from "./components/home/Home";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import Contact from "./components/contact/Contact";
-// Add module imports for CART
-
-// Add module imports for Shipping
+import Cart from "./components/cart/Cart";
+import Shipping from "./components/cart/Shipping";
+import MyOrders from "./components/myOrders/MyOrders";
 
 import Login from "./components/login/Login";
 import Profile from "./components/profile/Profile";
-// Add module imports for MY ORDERS
 
 import OrderDetails from "./components/myOrders/OrderDetails";
 import About from "./components/about/About";
-
 
 import "./styles/app.scss";
 import "./styles/header.scss";
@@ -31,6 +30,11 @@ import "./styles/orderDetails.scss";
 import "./styles/about.scss";
 
 function App() {
+  const [title, setTitle] = useState("Milos' Burgers");
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
   return (
     <Router>
       <Header isAuthenticated={true} />
@@ -38,19 +42,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
-          //           Add the Route for CART
-      
-          //           Add the Route for SHIPPING
-        
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/shipping" element={<Shipping />} />
+        <Route path="/myorders" element={<MyOrders />} />
         <Route path="/login" element={<Login />} />
         <Route path="/me" element={<Profile />} />
-         //           Add the Route for MY ORDERS
-
         <Route path="/order/:id" element={<OrderDetails />} />
-      
-       
-
-        
       </Routes>
 
       <Footer />
